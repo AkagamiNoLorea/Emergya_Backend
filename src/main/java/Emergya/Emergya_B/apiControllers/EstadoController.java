@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/estado")
+@RequestMapping(path = "/estado")
 public class EstadoController {
 
     private final EstadoService estadoService;
