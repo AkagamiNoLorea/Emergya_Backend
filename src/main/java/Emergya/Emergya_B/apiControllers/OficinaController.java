@@ -20,7 +20,7 @@ public class OficinaController {
 
     @GetMapping("/{id}")
     public Oficina getOficinaById(@PathVariable Long id) {
-        return oficinaRepository.findById(id).orElse(null);
+        return oficinaRepository.findById(Math.toIntExact(id)).orElse(null);
     }
 
     @PostMapping("/")
@@ -30,13 +30,13 @@ public class OficinaController {
 
     @PutMapping("/{id}")
     public Oficina updateOficina(@PathVariable Long id, @RequestBody Oficina oficinaDetails) {
-        Oficina oficina = oficinaRepository.findById(id).orElse(null);
+        Oficina oficina = oficinaRepository.findById(Math.toIntExact(id)).orElse(null);
 
         if (oficina != null) {
             oficina.setNombreOficina(oficinaDetails.getNombreOficina());
-            oficina.setNumeroAsientos(oficinaDetails.getNumeroAsientos());
-            oficina.setPlanoDistribucion(oficinaDetails.getPlanoDistribucion());
-            oficina.setDiasAntelacion(oficinaDetails.getDiasAntelacion());
+            oficina.setNumero_asientos(oficinaDetails.getNumero_asientos());
+            oficina.setPlano_distribuccion(oficinaDetails.getPlano_distribuccion());
+            oficina.setDias_antelacion(oficinaDetails.getDias_antelacion());
             return oficinaRepository.save(oficina);
         }
 
@@ -45,7 +45,7 @@ public class OficinaController {
 
     @DeleteMapping("/{id}")
     public void deleteOficina(@PathVariable Long id) {
-        oficinaRepository.deleteById(id);
+        oficinaRepository.deleteById(Math.toIntExact(id));
     }
 }
 

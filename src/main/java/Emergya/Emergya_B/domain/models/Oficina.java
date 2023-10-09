@@ -11,29 +11,28 @@ public class Oficina {
 
     private Integer id;
 
-    private String Nombre;
+    private String NombreOficina;
 
-    private String Número_asientos;
+    private String Numero_asientos;
 
-    private String Plano_distribucción;
+    private String Plano_distribuccion;
 
-    private String Días_antelación;
-
+    private String Dias_antelacion;
     public Oficina () {
     }
-    public Oficina(Integer id, String Nombre, String Número_asientos, String Plano_distribucción, String Días_antelación){
+    public Oficina(Integer id, String NombreOficina, String Numero_asientos, String Plano_distribuccion, String Dias_antelacion){
         this.id = id;
-        this.Nombre = Nombre;
-        this.Número_asientos = Número_asientos;
-        this.Plano_distribucción = Plano_distribucción;
-        this.Días_antelación = Días_antelación;
+        this.NombreOficina = NombreOficina;
+        this.Numero_asientos = Numero_asientos;
+        this.Plano_distribuccion = Plano_distribuccion;
+        this.Dias_antelacion = Dias_antelacion;
     }
 
-    public Oficina(String nombre, String número_asientos, String plano_distribucción, String días_antelación) {
-        Nombre = nombre;
-        Número_asientos = número_asientos;
-        Plano_distribucción = plano_distribucción;
-        Días_antelación = días_antelación;
+    public Oficina(String nombreoficina, String numero_asientos, String plano_distribuccion, String dias_antelacion) {
+        NombreOficina = nombreoficina;
+        Numero_asientos = numero_asientos;
+        Plano_distribuccion = Plano_distribuccion;
+        Dias_antelacion = Dias_antelacion;
     }
 
     public Integer getId() {
@@ -44,35 +43,35 @@ public class Oficina {
         this.id = id;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getNombreOficina() {
+        return NombreOficina;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNombreOficina(String nombreoficina) {
+        NombreOficina = nombreoficina;
     }
 
-    public String getNúmero_asientos() {
-        return Número_asientos;
+    public String getNumero_asientos() {
+        return Numero_asientos;
     }
 
-    public void setNúmero_asientos(String número_asientos) {
-        Número_asientos = número_asientos;
+    public void setNumero_asientos(String numero_asientos) {
+        Numero_asientos = numero_asientos;
     }
 
-    public String getPlano_distribucción() {
-        return Plano_distribucción;
+    public String getPlano_distribuccion() {
+        return Plano_distribuccion;
     }
 
-    public void setPlano_distribucción(String plano_distribucción) {
-        Plano_distribucción = plano_distribucción;
+    public void setPlano_distribuccion(String plano_distribuccion) {
+        Plano_distribuccion = plano_distribuccion;
     }
 
-    public String getDías_antelación() {
-        return Días_antelación;
+    public String getDias_antelacion() {
+        return Dias_antelacion;
     }
 
-    public void setDías_antelación(String días_antelación) {
-        Días_antelación = días_antelación;
+    public void setDias_antelacion(String dias_antelacion) {
+        Dias_antelacion = dias_antelacion;
     }
 }
