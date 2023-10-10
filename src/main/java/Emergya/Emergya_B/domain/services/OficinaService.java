@@ -20,15 +20,17 @@ public class OficinaService {
     public static Optional<Object> findById(int toIntExact) {
     }
 
+
+
     public List<Oficina>getAllOficinas() {
         return oficinaRepository.findAll();
     }
 
-    public Optional<Oficina>getOficinaById(Long id){
+    public Optional<Oficina>getOficinaById(Integer id){
         return oficinaRepository.finById(id);
     }
 
-    public Optional<Oficina>updateOficina(Long id, Oficina oficinaDetails){
+    public Optional<Oficina>updateOficina(Integer id, Oficina oficinaDetails){
         Optional<Oficina>optionalOficina = oficinaRepository.findById(id);
 
         if (optionalOficina.isPresent()) {
@@ -41,8 +43,9 @@ public class OficinaService {
 
             return Optional.of(oficinaRepository.save(oficina));
         }
-        public void deleteOficial(id){
-            oficinaRepository.deleteById(Math.toIntExact(id));
-        }
+
+    }
+    public void deleteOficina(Integer id){
+        oficinaRepository.deleteById(Math.toIntExact(id));
     }
 }
