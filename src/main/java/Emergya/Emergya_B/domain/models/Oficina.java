@@ -1,77 +1,76 @@
 package Emergya.Emergya_B.domain.models;
 
+
+@Entity
+@Table
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 
 public class Oficina {
-
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombreOficina;
+    private Integer numeroAsientos;
+    private String planoDistribucion;
+    private Integer diasAntelacion;
 
-    private Integer id;
+    public Oficina(){
 
-    private String NombreOficina;
-
-    private String Numero_asientos;
-
-    private String Plano_distribuccion;
-
-    private String Dias_antelacion;
-    public Oficina () {
     }
-    public Oficina(Integer id, String NombreOficina, String Numero_asientos, String Plano_distribuccion, String Dias_antelacion){
+
+    public Oficina(Long id, String nombreOficina, Integer numeroAsientos, String planoDistribucion, Integer diasAntelacion) {
         this.id = id;
-        this.NombreOficina = NombreOficina;
-        this.Numero_asientos = Numero_asientos;
-        this.Plano_distribuccion = Plano_distribuccion;
-        this.Dias_antelacion = Dias_antelacion;
+        this.nombreOficina = nombreOficina;
+        this.numeroAsientos = numeroAsientos;
+        this.planoDistribucion = planoDistribucion;
+        this.diasAntelacion = diasAntelacion;
     }
 
-    public Oficina(String nombreoficina, String numero_asientos, String plano_distribuccion, String dias_antelacion) {
-        NombreOficina = nombreoficina;
-        Numero_asientos = numero_asientos;
-        Plano_distribuccion = Plano_distribuccion;
-        Dias_antelacion = Dias_antelacion;
+    public Oficina(String nombreOficina, Integer numeroAsientos, String planoDistribucion, Integer diasAntelacion) {
+        this.nombreOficina = nombreOficina;
+        this.numeroAsientos = numeroAsientos;
+        this.planoDistribucion = planoDistribucion;
+        this.diasAntelacion = diasAntelacion;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getNombreOficina() {
-        return NombreOficina;
+        return nombreOficina;
     }
 
-    public void setNombreOficina(String nombreoficina) {
-        NombreOficina = nombreoficina;
+    public void setNombreOficina(String nombreOficina) {
+        this.nombreOficina = nombreOficina;
     }
 
-    public String getNumero_asientos() {
-        return Numero_asientos;
+    public Integer getNumeroAsientos() {
+        return numeroAsientos;
     }
 
-    public void setNumero_asientos(String numero_asientos) {
-        Numero_asientos = numero_asientos;
+    public void setNumeroAsientos(Integer numeroAsientos) {
+        this.numeroAsientos = numeroAsientos;
     }
 
-    public String getPlano_distribuccion() {
-        return Plano_distribuccion;
+    public String getPlanoDistribucion() {
+        return planoDistribucion;
     }
 
-    public void setPlano_distribuccion(String plano_distribuccion) {
-        Plano_distribuccion = plano_distribuccion;
+    public void setPlanoDistribucion(String planoDistribucion) {
+        this.planoDistribucion = planoDistribucion;
     }
 
-    public String getDias_antelacion() {
-        return Dias_antelacion;
+    public Integer getDiasAntelacion() {
+        return diasAntelacion;
     }
-
-    public void setDias_antelacion(String dias_antelacion) {
-        Dias_antelacion = dias_antelacion;
+    public void setDiasAntelacion(Integer diasAntelacion) {
+        this.diasAntelacion = diasAntelacion;
     }
 }
