@@ -1,3 +1,4 @@
+
 package Emergya.Emergya_B.apiControllers;
 
 import Emergya.Emergya_B.domain.models.Oficina;
@@ -44,6 +45,7 @@ public class OficinaController {
 
     @DeleteMapping("/{id}")
     public void deleteOficina(@PathVariable Long id) {
-        oficinaRepository.deleteById(id);
+        oficinaRepository.deleteById(Math.toIntExact(id));
     }
 }
+

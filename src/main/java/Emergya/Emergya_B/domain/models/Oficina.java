@@ -1,9 +1,11 @@
 package Emergya.Emergya_B.domain.models;
 
-import jakarta.persistence.*;
 
 @Entity
 @Table
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 
 public class Oficina {
     @Id
@@ -68,7 +70,6 @@ public class Oficina {
     public Integer getDiasAntelacion() {
         return diasAntelacion;
     }
-
     public void setDiasAntelacion(Integer diasAntelacion) {
         this.diasAntelacion = diasAntelacion;
     }
