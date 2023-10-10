@@ -2,6 +2,7 @@
 package Emergya.Emergya_B.apiControllers;
 
 import Emergya.Emergya_B.domain.models.Oficina;
+import Emergya.Emergya_B.domain.services.OficinaService;
 import Emergya.Emergya_B.infrarepositorie.OficinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,26 +12,26 @@ import java.util.List;
 @RequestMapping("/oficinas")
 public class OficinaController {
     @Autowired
-    private OficinaRepository oficinaRepository;
+    private OficinaService oficinaService;
 
     @GetMapping("/")
     public List<Oficina> getAllOficinas() {
-        return oficinaRepository.findAll();
+        return OficinaService.findAll();
     }
 
     @GetMapping("/{id}")
     public Oficina getOficinaById(@PathVariable Long id) {
-        return oficinaRepository.findById(Math.toIntExact(id)).orElse(null);
+        return (Oficina) OficinaService.findById(Math.toIntExact(id)).orElse(null);
     }
 
     @PostMapping("/")
     public Oficina createOficina(@RequestBody Oficina oficina) {
-        return oficinaRepository.save(oficina);
+        return OficinaService.save(oficina);
     }
 
     @PutMapping("/{id}")
     public Oficina updateOficina(@PathVariable Long id, @RequestBody Oficina oficinaDetails) {
-        Oficina oficina = oficinaRepository.findById(Math.toIntExact(id)).orElse(null);
+        Oficina oficina = (Oficina) OficinaService.findById(Math.toIntExact(id)).orElse(null);
 
         if (oficina != null) {
             oficina.setNombreOficina(oficinaDetails.getNombreOficina());

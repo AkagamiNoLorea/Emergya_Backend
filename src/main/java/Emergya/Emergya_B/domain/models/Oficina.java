@@ -1,9 +1,10 @@
 package Emergya.Emergya_B.domain.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
 
+@Entity
 public class Oficina {
 
 
@@ -73,5 +74,9 @@ public class Oficina {
 
     public void setDias_antelacion(String dias_antelacion) {
         Dias_antelacion = dias_antelacion;
+    }
+
+    public String getPlano_distribucion() {
+        return null;
     }
 }
