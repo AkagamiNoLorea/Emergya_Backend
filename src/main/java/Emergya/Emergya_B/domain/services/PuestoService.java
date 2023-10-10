@@ -5,6 +5,8 @@ import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.infrarepositorie.PuestoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
+
 
 import java.util.List;
 
@@ -18,14 +20,20 @@ public class PuestoService {
     }
 
     public Puesto obtenerPuestoPorId(Long id) {
-        return puestoRepository.findById(id);
+        Optional<Puesto> puestoOpt = puestoRepository.findById(id);
+        return puestoOpt.orElse(null);
 
     }
 
     public Puesto reservarPuesto(Long id, EstadoPuesto nuevoEstado) {
-        Puesto puesto = obtenerPuestoPorId(id);
-        puesto.setEstado(nuevoEstado);
-        return puestoRepository.save(puesto);
+        Optional<Puesto> puestoOptional = Optional.ofNullable(obtenerPuestoPorId(id));
+        if (puestoOptional.isPresent()) {
+            Puesto puesto = puestoOptional.get();
+            puesto.setEstado(nuevoEstado);
+            return puestoRepository.save(puesto);
+        } else {
+            return null; // Otra forma de manejar la falta de un puesto encontrado
+        }
     }
 
     public Puesto liberarPuesto(Long id) {

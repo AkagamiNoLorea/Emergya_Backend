@@ -1,9 +1,10 @@
 package Emergya.Emergya_B.domain.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+
+@Entity
+@Table
 public class Puesto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +12,10 @@ public class Puesto {
 
     private int numero;
     private EstadoPuesto estado;
+
+    @ManyToOne
+    @JoinColumn(name = "oficina_id")
+    private Oficina oficina;
 
     public Puesto() {
 

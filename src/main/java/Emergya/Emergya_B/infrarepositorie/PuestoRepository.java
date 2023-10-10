@@ -3,13 +3,18 @@ package Emergya.Emergya_B.infrarepositorie;
 import Emergya.Emergya_B.domain.models.EstadoPuesto;
 import Emergya.Emergya_B.domain.models.Puesto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
 
 import java.util.List;
 
-public interface PuestoRepository extends JpaRepository<Puesto, Integer> {
+public interface PuestoRepository extends JpaRepository<Puesto, Long> {
     List<Puesto> findByEstado(EstadoPuesto estadoPuesto);
 
     List<Puesto> findByOficinaId(Long oficinaId);
+    // List<Puesto> findByEstado(EstadoPuesto estadoPuesto);
 
-    Puesto findById(Long id);
+    //List<Puesto> findByOficinaId(Long oficinaId);
+
+
 }
