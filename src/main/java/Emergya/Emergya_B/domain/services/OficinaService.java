@@ -46,4 +46,8 @@ public class OficinaService {
     public void deleteOficina(Long id) {
         oficinaRepository.deleteById(id);
     }
+
+    public Optional<Oficina> findById(Integer id) {
+        return null;
+    }
 }

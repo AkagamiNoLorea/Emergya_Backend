@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
-@RequestMapping(path = "/estado")
+@RequestMapping(path = "api/v1/estado")
 public class EstadoController {
 
     private final EstadoService estadoService;
@@ -25,7 +26,7 @@ public class EstadoController {
     }
 
     @PostMapping
-    public void createbook(@RequestBody Estado estado){
+    public void createBook(@RequestBody Estado estado){
         estadoService.newEstado(estado);
     }
 

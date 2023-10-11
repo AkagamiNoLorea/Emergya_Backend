@@ -43,6 +43,7 @@ public class EstadoService {
     }
 
     public void newEstado(Estado estado) {
+       return estadoRepository.save(estado);
     }
 
     public List<Estado> getBook() {
