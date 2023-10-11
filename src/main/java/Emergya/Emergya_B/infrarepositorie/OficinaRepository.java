@@ -11,4 +11,8 @@ public interface OficinaRepository extends JpaRepository<Oficina,Integer> {
     List<Oficina> findAll();
 
     Optional<Oficina> finById(Long id);
+
+    Optional<Oficina> findById(Long id);
+
+    void deleteById(Long id);
 }

@@ -22,24 +22,25 @@ public class OficinaController {
 
     @GetMapping("/{id}")
     public Oficina getOficinaById(@PathVariable Integer id) {
-        return (Oficina) OficinaService.findById(Math.toIntExact(id)).orElse(null);
+        Oficina oficina = (Oficina) OficinaService.orElse(null);
+        return oficina;
     }
 
     @PostMapping("/")
     public Oficina createOficina(@RequestBody Oficina oficina) {
-        return OficinaService.updateOficina(oficina);
+        return OficinaService.updateOficina();
     }
 
     @PutMapping("/{id}")
     public Optional<Oficina> updateOficina(@PathVariable Integer id, @RequestBody Oficina oficinaDetails) {
-        Oficina oficina = (Oficina) OficinaService.findById(id).orElse(null);
+        Oficina oficina = (Oficina) OficinaService.updateOficina();
 
         if (oficina != null) {
             oficina.setNombreOficina(oficinaDetails.getNombreOficina());
-            oficina.setNumero_asientos(oficinaDetails.getNumero_asientos());
+            oficina.setPuesto();
             oficina.setPlano_distribuccion(oficinaDetails.getPlano_distribuccion());
             oficina.setDias_antelacion(oficinaDetails.getDias_antelacion());
-            return oficinaService.updateOficina(id, oficina);
+            return oficinaService.updateOficina(Long.valueOf(id), oficina);
         }
 
         return null;
@@ -47,7 +48,7 @@ public class OficinaController {
 
     @DeleteMapping("/{id}")
     public void deleteOficina(@PathVariable Integer id) {
-        oficinaService.deleteOficina(id);
+        oficinaService.deleteOficina(Long.valueOf(id));
     }
 }
 

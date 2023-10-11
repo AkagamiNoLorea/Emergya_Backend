@@ -14,24 +14,27 @@ public class Oficina {
 
     private String NombreOficina;
 
-    private String Numero_asientos;
+    private String Puesto;
 
     private String Plano_distribuccion;
 
     private String Dias_antelacion;
-    public Oficina () {
+    private String puesto;
+
+    public Oficina() {
     }
-    public Oficina(Integer id, String NombreOficina, String Numero_asientos, String Plano_distribuccion, String Dias_antelacion){
+
+    public Oficina(Integer id, String NombreOficina, String Puesto, String Plano_distribuccion, String Dias_antelacion) {
         this.id = id;
         this.NombreOficina = NombreOficina;
-        this.Numero_asientos = Numero_asientos;
+        this.Puesto = Puesto;
         this.Plano_distribuccion = Plano_distribuccion;
         this.Dias_antelacion = Dias_antelacion;
     }
 
-    public Oficina(String nombreoficina, String numero_asientos, String plano_distribuccion, String dias_antelacion) {
+    public Oficina(String nombreoficina, String puesto, String plano_distribuccion, String dias_antelacion) {
         NombreOficina = nombreoficina;
-        Numero_asientos = numero_asientos;
+        Puesto = Puesto;
         Plano_distribuccion = Plano_distribuccion;
         Dias_antelacion = Dias_antelacion;
     }
@@ -52,12 +55,12 @@ public class Oficina {
         NombreOficina = nombreoficina;
     }
 
-    public String getNumero_asientos() {
-        return Numero_asientos;
+    public String getPuesto() {
+        return Puesto;
     }
 
-    public void setNumero_asientos(String numero_asientos) {
-        Numero_asientos = numero_asientos;
+    public void setPuesto() {
+        String Puesto = puesto;
     }
 
     public String getPlano_distribuccion() {
@@ -79,4 +82,5 @@ public class Oficina {
     public String getPlano_distribucion() {
         return null;
     }
+
 }
