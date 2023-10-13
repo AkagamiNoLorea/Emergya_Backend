@@ -21,23 +21,23 @@ public class EstadoController {
     }
 
     @GetMapping
-    public List<Estado> getBookController(){ return  estadoService.getBook();
+    public List<Estado> getEstadoController(){ return  estadoService.getEstado();
     }
 
     @PostMapping
-    public void createbook(@RequestBody Estado estado){
+    public void createEstado(@RequestBody Estado estado){
         estadoService.newEstado(estado);
     }
 
     @PutMapping("/{id}")
-    public void updateBook(@PathVariable Integer id, @RequestBody Estado estado){
+    public void updateEstado(@PathVariable Integer id, @RequestBody Estado estado){
         estadoService.update(id, estado);
 
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id){
-       estadoService.deletebook(id);
+       estadoService.deleteEstado(id);
 
     }
 

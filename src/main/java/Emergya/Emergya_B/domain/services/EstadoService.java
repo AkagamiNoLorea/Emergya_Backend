@@ -21,7 +21,7 @@ public class EstadoService {
 
 
 
-    public List<Estado> getBook() {
+    public List<Estado> getEstado() {
         return estadoRepository.findAll(); // SELECT * FROM proyectos
     }
 
@@ -31,19 +31,19 @@ public class EstadoService {
 
     public void update(Integer id, Estado estado) {
 
-        Optional<Estado> bookByID = estadoRepository.findById(id); // buscar proyecto por id
+        Optional<Estado> estadoByID = estadoRepository.findById(id); // buscar proyecto por id
 
-        if (bookByID.isPresent()) {
-            Estado bookExistente = bookByID.get();
+        if (estadoByID.isPresent()) {
+            Estado estadoExistente = estadoByID.get();
 
-            bookExistente.setOc_mañana(estado.getOc_mañana());
-            bookExistente.setOc_tarde(estado.getOc_tarde());
+            estadoExistente.setOc_mañana(estado.getOc_mañana());
+            estadoExistente.setOc_tarde(estado.getOc_tarde());
 
-            estadoRepository.save(bookExistente);
+            estadoRepository.save(estadoExistente);
         }
     }
 
-    public void deletebook(Integer id) {
+    public void deleteEstado(Integer id) {
         boolean existe = estadoRepository.existsById(id);
         if (existe) {
             estadoRepository.deleteById(id);
