@@ -1,4 +1,4 @@
-package Emergya.Emergya_B.apiControllers;
+/*package Emergya.Emergya_B.apiControllers;
 
 import Emergya.Emergya_B.domain.models.Estado;
 import Emergya.Emergya_B.domain.services.EstadoService;
@@ -21,7 +21,8 @@ public class EstadoController {
     }
 
     @GetMapping
-    public List<Estado> getEstadoController(){ return  estadoService.getestadoService();
+    public List<Estado> getEstadoController(){
+        return estadoService.getestadoService();
     }
 
     @PostMapping
@@ -42,4 +43,4 @@ public class EstadoController {
     }
 
 }
-
+*/

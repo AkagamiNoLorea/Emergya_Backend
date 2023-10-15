@@ -1,4 +1,4 @@
-package Emergya.Emergya_B.infrarepositorie;
+/*package Emergya.Emergya_B.infrarepositorie;
 
 
 import Emergya.Emergya_B.domain.models.Oficina;
@@ -16,3 +16,5 @@ public interface OficinaRepository extends JpaRepository<Oficina,Integer> {
 
     void deleteById(Long id);
 }
+
+ */

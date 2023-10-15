@@ -1,4 +1,4 @@
-package Emergya.Emergya_B.config;
+/*package Emergya.Emergya_B.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,3 +22,5 @@ public class CorsConfig {
         return new CorsFilter(source);
     }
 }
+*/
+

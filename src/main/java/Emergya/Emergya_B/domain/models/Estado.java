@@ -1,4 +1,4 @@
-package Emergya.Emergya_B.domain.models;
+/*package Emergya.Emergya_B.domain.models;
 
 import jakarta.persistence.*;
 
@@ -50,4 +50,6 @@ public class Estado {
         this.Oc_tarde = Oc_tarde;
     }
 }
+
+ */
 

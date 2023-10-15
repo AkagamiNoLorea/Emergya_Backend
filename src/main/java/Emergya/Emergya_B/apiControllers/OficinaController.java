@@ -1,4 +1,4 @@
-
+/*
 package Emergya.Emergya_B.apiControllers;
 
 import Emergya.Emergya_B.domain.models.Oficina;
@@ -51,4 +51,30 @@ public class OficinaController {
         oficinaService.deleteOficina(Long.valueOf(id));
     }
 }
+*/
 
+package Emergya.Emergya_B.apiControllers;
+
+import Emergya.Emergya_B.domain.models.Oficina;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+
+public class OficinaController {
+
+    @GetMapping(path = "/")
+    public List<Oficina> getOficina() {
+        return List.of(
+                new Oficina(
+                        1,
+                        "Emergya",
+                        "22",
+                        "al lado del baño",
+                        "12 dias"
+                )
+        );
+    }
+}

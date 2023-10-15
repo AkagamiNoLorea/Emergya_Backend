@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
+		<version>3.1.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>Emergya</groupId>
-	<artifactId>Emergya_B</artifactId>
+	<groupId>Proyecto_Porfolio</groupId>
+	<artifactId>Proyecto_Porfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Emergya_B</name>
-	<description>base_datos_para_control_de_puesto_trabajo</description>
+	<name>Proyecto_Porfolio</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

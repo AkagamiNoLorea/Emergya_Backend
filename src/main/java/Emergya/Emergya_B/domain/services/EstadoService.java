@@ -1,3 +1,4 @@
+/*
 package Emergya.Emergya_B.domain.services;
 
 import Emergya.Emergya_B.domain.models.Estado;
@@ -22,7 +23,7 @@ public class EstadoService {
 
 
     public List<Estado> getBook() {
-        return estadoRepository.findAll(); // SELECT * FROM proyectos
+        return estadoRepository.findAll();
     }
 
     public void newEstado (Estado estado) {
@@ -31,7 +32,7 @@ public class EstadoService {
 
     public void update(Integer id, Estado estado) {
 
-        Optional<Estado> bookByID = estadoRepository.findById(id); // buscar proyecto por id
+        Optional<Estado> estadoByID = estadoRepository.findById(id); // buscar proyecto por id
 
         if (bookByID.isPresent()) {
             Estado bookExistente = bookByID.get();
@@ -51,4 +52,4 @@ public class EstadoService {
     }
 
 }
-
+*/
