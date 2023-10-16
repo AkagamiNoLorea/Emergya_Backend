@@ -3,9 +3,7 @@ package Emergya.Emergya_B.apiControllers;
 import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.domain.services.OficinaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +25,14 @@ public class OficinaController {
        return OficinaService.getOficina();
     }
 
+@PostMapping
+    public void createOficina(@RequestBody Oficina oficina){
+       OficinaService.newOficina(oficina);
+}
 
+@PutMapping("/{id}")
+    public void updateOficina(@PathVariable Integer id, @RequestBody Oficina oficina){
+       oficinaService.update(id, oficina);
+}
 
 }
