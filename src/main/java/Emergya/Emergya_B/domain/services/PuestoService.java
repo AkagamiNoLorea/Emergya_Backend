@@ -1,43 +1,47 @@
 package Emergya.Emergya_B.domain.services;
 
-import Emergya.Emergya_B.domain.models.EstadoPuesto;
 import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.infrarepositorie.PuestoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PuestoService {
+
+    private final PuestoRepository puestoRepository;
+
     @Autowired
-    private PuestoRepository puestoRepository;
-
-    public List<Puesto> obtenerPuestosDisponibles() {
-        return puestoRepository.findByEstado(EstadoPuesto.DISPONIBLE);
+    public PuestoService(PuestoRepository puestoRepository) {
+        this.puestoRepository = puestoRepository;
     }
 
-    public Puesto obtenerPuestoPorId(Long id) {
-        return puestoRepository.findById(id);
-
+    public List<Puesto> getPuestos() {
+        return puestoRepository.findAll();
     }
 
-    public Puesto reservarPuesto(Long id, EstadoPuesto nuevoEstado) {
-        Puesto puesto = obtenerPuestoPorId(id);
-        puesto.setEstado(nuevoEstado);
-        return puestoRepository.save(puesto);
+    public void createPuesto(Puesto puesto) {
+        puestoRepository.save(puesto);
     }
 
-    public Puesto liberarPuesto(Long id) {
-        Puesto puesto = obtenerPuestoPorId(id);
-        puesto.setEstado(EstadoPuesto.DISPONIBLE);
-        return puestoRepository.save(puesto);
+    public void updatePuesto(Integer id, Puesto puesto) {
+        Optional<Puesto> puestoById = puestoRepository.findById(id);
+        if (puestoById.isPresent()) {
+            Puesto existente = puestoById.get();
+            existente.setIdOficina(puesto.getIdOficina()); // Cambia el nombre del método
+            existente.setDisponible(puesto.getDisponible());
+            existente.setNumero(puesto.getNumero());
+            existente.setIdEstado(puesto.getIdEstado()); // Agrega el método para el estado
+            puestoRepository.save(existente);
+        }
     }
 
-    public List<Puesto> obtenerPuestosPorOficina(Long oficinaId) {
-        return puestoRepository.findByOficinaId(oficinaId);
+    public void deletePuesto(Integer id) {
+        boolean existe = puestoRepository.existsById(id);
+        if (existe) {
+            puestoRepository.deleteById(id);
+        }
     }
-
-    // los metodos para el crud no son necesarios para CRUD ya que se van a gestionar dentro de "oficina"
 }
-

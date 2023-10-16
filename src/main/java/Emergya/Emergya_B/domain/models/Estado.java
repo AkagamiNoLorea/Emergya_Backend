@@ -9,21 +9,23 @@ public class Estado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private Integer id;
-    private String Oc_mañana;
-    private String Oc_tarde;
+    @Column(name = "oc_mañana")
+    private Boolean Oc_mañana;
+    @Column(name = "oc_tarde")
+    private Boolean Oc_tarde;
 
     // Constructor vacío
     public Estado() {
     }
 
     // Constructor con todos los atributos
-    public Estado(Integer id, String Oc_mañana, String Oc_tarde) {
+    public Estado(Integer id, Boolean Oc_mañana, Boolean Oc_tarde) {
         this.id = id;
         this.Oc_mañana = Oc_mañana;
         this.Oc_tarde = Oc_tarde;
     }
 
-    public Estado( String Oc_mañana, String Oc_tarde) {
+    public Estado( Boolean Oc_mañana, Boolean Oc_tarde) {
         this.Oc_mañana = Oc_mañana;
         this.Oc_tarde = Oc_tarde;
     }
@@ -32,21 +34,21 @@ public class Estado {
         return id;
     }
 
-    public String getOc_mañana() {
+    public Boolean getOc_mañana() {
         return Oc_mañana;
     }
 
-    public String getOc_tarde() {
+    public Boolean getOc_tarde() {
         return Oc_tarde;
     }
 
     // Métodos setter para establecer los valores de las propiedades
 
-    public void setOc_mañana(String Oc_mañana) {
+    public void setOc_mañana(Boolean Oc_mañana) {
         this.Oc_mañana = Oc_mañana;
     }
 
-    public void setOc_tarde(String Oc_tarde) {
+    public void setOc_tarde(Boolean Oc_tarde) {
         this.Oc_tarde = Oc_tarde;
     }
 }

@@ -1,4 +1,4 @@
-package Emergya.Emergya_B.domain.models;
+//package Emergya.Emergya_B.domain.models;
 
-public class Usuario {
-}
+//public class Usuario {
+//}
