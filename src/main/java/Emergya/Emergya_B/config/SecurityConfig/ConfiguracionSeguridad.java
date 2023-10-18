@@ -1,4 +1,4 @@
-import org.springframework.context.annotation.Bean;
+/*import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,7 +34,7 @@ public class ConfiguracionSeguridad {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .antMatchers("/api/public/**").permitAll()
-                                .antMatchers("/api/usuario/**git").hasRole("USUARIO")
+                                .antMatchers("/api/usuario/**").hasRole("USUARIO")
                                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
@@ -47,4 +47,4 @@ public class ConfiguracionSeguridad {
         return http.build();
     }
 }
-
+*/
