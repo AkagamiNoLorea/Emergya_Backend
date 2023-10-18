@@ -1,49 +1,71 @@
 package Emergya.Emergya_B.domain.models;
-
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name = "puestos")
+@Table(name = "puesto")
 public class Puesto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Integer id;
 
-    private int numero;
+    @Column(name = "id_oficina")
+    private Integer idOficina;
+
+    @Column(name = "disponible")
+    private Boolean disponible;
+
+    @Column(name = "numero")
+    private Integer numero;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado")
     private EstadoPuesto estado;
 
     @ManyToOne
-    @JoinColumn(name = "oficina_id")
+    @JoinColumn(name = "id_oficina", insertable = false, updatable = false)
     private Oficina oficina;
 
     public Puesto() {
-
     }
-    public Puesto(int numero, EstadoPuesto estado) {
+
+    public Puesto(Integer idOficina, Boolean disponible, Integer numero, EstadoPuesto estado) {
+        this.idOficina = idOficina;
+        this.disponible = disponible;
         this.numero = numero;
         this.estado = estado;
     }
 
-    public Puesto(Long id, int numero, EstadoPuesto estado) {
-        this.id = id;
-        this.numero = numero;
-        this.estado = estado;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getNumero() {
+    public Integer getIdOficina() {
+        return idOficina;
+    }
+
+    public void setIdOficina(Integer idOficina) {
+        this.idOficina = idOficina;
+    }
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -53,6 +75,14 @@ public class Puesto {
 
     public void setEstado(EstadoPuesto estado) {
         this.estado = estado;
+    }
+
+    public Oficina getOficina() {
+        return oficina;
+    }
+
+    public void setOficina(Oficina oficina) {
+        this.oficina = oficina;
     }
 }
 

@@ -11,7 +11,11 @@ import java.util.List;
 public interface PuestoRepository extends JpaRepository<Puesto, Long> {
     List<Puesto> findByEstado(EstadoPuesto estadoPuesto);
 
-    List<Puesto> findByOficinaId(Long oficinaId);
+    List<Puesto> findByOficinaId(Integer oficinaId);
+
+    boolean existsById(Integer id);
+
+    List<Puesto> findAllByDisponibleTrue();
     // List<Puesto> findByEstado(EstadoPuesto estadoPuesto);
 
     //List<Puesto> findByOficinaId(Long oficinaId);

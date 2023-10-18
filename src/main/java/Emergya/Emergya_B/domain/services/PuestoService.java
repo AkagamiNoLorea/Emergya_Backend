@@ -1,51 +1,48 @@
 package Emergya.Emergya_B.domain.services;
 
-import Emergya.Emergya_B.domain.models.EstadoPuesto;
 import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.infrarepositorie.PuestoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
-
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PuestoService {
+
+    private final PuestoRepository puestoRepository;
+
     @Autowired
-    private PuestoRepository puestoRepository;
+    public PuestoService(PuestoRepository puestoRepository) {
+        this.puestoRepository = puestoRepository;
+    }
 
+    // Método para obtener los puestos disponibles.
     public List<Puesto> obtenerPuestosDisponibles() {
-        return puestoRepository.findByEstado(EstadoPuesto.DISPONIBLE);
+        // Asumo que tienes un método en tu repository que te devuelve los puestos disponibles.
+        // Si no lo tienes, deberás crear uno.
+        return puestoRepository.findAllByDisponibleTrue();
     }
 
-    public Puesto obtenerPuestoPorId(Long id) {
-        Optional<Puesto> puestoOpt = puestoRepository.findById(id);
-        return puestoOpt.orElse(null);
-
-    }
-
-    public Puesto reservarPuesto(Long id, EstadoPuesto nuevoEstado) {
-        Optional<Puesto> puestoOptional = Optional.ofNullable(obtenerPuestoPorId(id));
-        if (puestoOptional.isPresent()) {
-            Puesto puesto = puestoOptional.get();
-            puesto.setEstado(nuevoEstado);
-            return puestoRepository.save(puesto);
-        } else {
-            return null; // Otra forma de manejar la falta de un puesto encontrado
-        }
-    }
-
-    public Puesto liberarPuesto(Long id) {
-        Puesto puesto = obtenerPuestoPorId(id);
-        puesto.setEstado(EstadoPuesto.DISPONIBLE);
+    // Método para guardar un nuevo puesto.
+    public Puesto guardarPuesto(Puesto puesto) {
         return puestoRepository.save(puesto);
     }
 
-    public List<Puesto> obtenerPuestosPorOficina(Long oficinaId) {
-        return puestoRepository.findByOficinaId(oficinaId);
+    // Método para obtener todos los puestos.
+    public List<Puesto> obtenerTodosLosPuestos() {
+        return puestoRepository.findAll();
     }
 
-    // los metodos para el crud no son necesarios para CRUD ya que se van a gestionar dentro de "oficina"
+    // Método para obtener un puesto específico por su ID.
+    public Optional<Puesto> obtenerPuestoPorId(Long id) {
+        return puestoRepository.findById(id);
+    }
+
+    // Método para eliminar un puesto por su ID.
+    public void eliminarPuesto(Long id) {
+        puestoRepository.deleteById(id);
+    }
 }
 

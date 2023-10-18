@@ -2,8 +2,8 @@ package Emergya.Emergya_B.domain.services;
 
 import Emergya.Emergya_B.domain.models.Estado;
 import Emergya.Emergya_B.infrarepositorie.EstadoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,41 +13,43 @@ public class EstadoService {
 
     private final EstadoRepository estadoRepository;
 
-    public EstadoService(EstadoRepository estadoRepository) {
+    @Autowired
+
+    public EstadoService (EstadoRepository estadoRepository) {
         this.estadoRepository = estadoRepository;
     }
 
-    public List<Estado> findAll() {
+
+
+    public List<Estado> getEstado() {
         return estadoRepository.findAll();
     }
 
-    public Optional<Estado> findById(Integer id) {
-        return estadoRepository.findById(id);
-    }
-
-
-    @Transactional
-    public Estado save(Estado estado) {
-        return estadoRepository.save(estado);
-    }
-
-    @Transactional
-    public void deleteById(Integer id) {
-        estadoRepository.deleteById(id);
+    public void newEstado (Estado estado) {
+        estadoRepository.save(estado);
     }
 
     public void update(Integer id, Estado estado) {
+
+        Optional<Estado> estadoByID = estadoRepository.findById(id); // buscar proyecto por id
+
+        if (estadoByID.isPresent()) {
+            Estado estadoExistente = estadoByID.get();
+
+            estadoExistente.setOc_mañana(estado.getOc_mañana());
+            estadoExistente.setOc_tarde(estado.getOc_tarde());
+            estadoExistente.setOc_todoDia(estado.getOc_todoDia());
+
+            estadoRepository.save(estadoExistente);
+        }
     }
 
-    public void deletebook(Integer id) {
+    public void deleteEstado(Integer id) {
+        boolean existe = estadoRepository.existsById(id);
+        if (existe) {
+            estadoRepository.deleteById(id);
+        }
     }
 
-    public void newEstado(Estado estado) {
-       return estadoRepository.save(estado);
-    }
-
-    public List<Estado> getBook() {
-        return null;
-    }
 }
 

@@ -1,6 +1,4 @@
 package Emergya.Emergya_B.domain.services;
-
-
 import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.infrarepositorie.OficinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,42 +10,36 @@ import java.util.Optional;
 @Service
 public class OficinaService {
 
+    private static OficinaRepository oficinaRepository;
     @Autowired
-    private OficinaRepository oficinaRepository;
 
-    public List<Oficina> getAllOficinas() {
+    public OficinaService(OficinaRepository oficinaRepository) {
+        OficinaService.oficinaRepository = oficinaRepository;
+    }
+
+
+
+    public static List<Oficina> getOficina(){
+
         return oficinaRepository.findAll();
     }
-
-    public Optional<Oficina> getOficinaById(Long id) {
-        return oficinaRepository.findById(id);
+    public static void newOficina(Oficina oficina) {
+        oficinaRepository.save(oficina);
     }
 
-    public Oficina createOficina(Oficina oficina) {
-        return oficinaRepository.save(oficina);
-    }
+    public void update(Integer id, Oficina oficina) {
+        Optional<Oficina> oficinaById = oficinaRepository.findById(Long.valueOf(id));
 
-    public Optional<Oficina> updateOficina(Long id, Oficina oficinaDetails) {
-        Optional<Oficina> optionalOficina = oficinaRepository.findById(id);
+        if(oficinaById.isPresent()){
+            Oficina oficinaExistente = oficinaById.get();
 
-        if (optionalOficina.isPresent()) {
-            Oficina oficina = optionalOficina.get();
-            oficina.setNombreOficina(oficinaDetails.getNombreOficina());
-            oficina.setNumeroAsientos(oficinaDetails.getNumeroAsientos());
-            oficina.setPlanoDistribucion(oficinaDetails.getPlanoDistribucion());
-            oficina.setDiasAntelacion(oficinaDetails.getDiasAntelacion());
+            oficinaExistente.setNombreoficina(oficina.getNombreoficina());
+            oficinaExistente.setPlanodistribucion(oficina.getPlanodistribucion());
+            oficinaExistente.setPuesto(oficina.getPuesto());
+            oficinaExistente.setDiasantelacion(oficina.getDiasantelacion());
 
-            return Optional.of(oficinaRepository.save(oficina));
+            oficinaRepository.save(oficinaExistente);
         }
 
-        return Optional.empty();
-    }
-
-    public void deleteOficina(Long id) {
-        oficinaRepository.deleteById(id);
-    }
-
-    public Optional<Oficina> findById(Integer id) {
-        return null;
     }
 }

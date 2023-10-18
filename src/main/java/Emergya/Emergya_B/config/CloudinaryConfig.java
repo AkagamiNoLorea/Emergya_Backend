@@ -1,4 +1,4 @@
-/*package Emergya.Emergya_B.config;
+package Emergya.Emergya_B.config;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -25,4 +25,4 @@ public class CloudinaryConfig {
                 "api_key", apiKey,
                 "api_secret", apiSecret));
     }
-}*/
+}

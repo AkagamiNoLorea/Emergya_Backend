@@ -1,54 +1,61 @@
 package Emergya.Emergya_B.domain.models;
-
 import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Estado {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private boolean isOcManana;
-    private boolean isOcTarde;
-    private boolean isOcTodoDia;
+    @Column(name = "oc_mañana")
+    private Boolean Oc_mañana;
+    @Column(name = "oc_tarde")
+    private Boolean Oc_tarde;
+    @Column(name = "oc_todoDia")
+    private Boolean Oc_todoDia;
 
     public Estado() {
     }
 
-    public Estado(Integer id, boolean isOcManana, boolean isOcTarde, boolean isOcTodoDia) {
+    public Estado(Integer id, Boolean Oc_mañana, Boolean Oc_tarde, Boolean Oc_todoDia ) {
         this.id = id;
-        this.isOcManana = isOcManana;
-        this.isOcTarde = isOcTarde;
-        this.isOcTodoDia = isOcTodoDia;
+        this.Oc_mañana = Oc_mañana;
+        this.Oc_tarde = Oc_tarde;
+        this.Oc_todoDia = Oc_todoDia;
+    }
+
+    public Estado( Boolean Oc_mañana, Boolean Oc_tarde, Boolean Oc_todoDia) {
+        this.Oc_mañana = Oc_mañana;
+        this.Oc_tarde = Oc_tarde;
+        this.Oc_todoDia = Oc_todoDia;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public boolean isOcManana() {
-        return isOcManana;
+    public Boolean getOc_mañana() {
+        return Oc_mañana;
     }
 
-    public boolean isOcTarde() {
-        return isOcTarde;
+    public Boolean getOc_tarde() {
+        return Oc_tarde;
     }
 
-    public void setOcManana(boolean isOcManana) {
-        this.isOcManana = isOcManana;
+    public Boolean getOc_todoDia() {
+        return Oc_todoDia;
     }
 
-    public void setOcTarde(boolean isOcTarde) {
-        this.isOcTarde = isOcTarde;
+    public void setOc_todoDia(Boolean oc_todoDia) {
+        Oc_todoDia = oc_todoDia;
     }
 
-    public boolean isOcTodoDia() {
-        return isOcTodoDia;
+    public void setOc_mañana(Boolean Oc_mañana) {
+        this.Oc_mañana = Oc_mañana;
     }
 
-    public void setOcTodoDia(boolean isOcTodoDia) {
-        this.isOcTodoDia = isOcTodoDia;
+    public void setOc_tarde(Boolean Oc_tarde) {
+        this.Oc_tarde = Oc_tarde;
     }
 }
-

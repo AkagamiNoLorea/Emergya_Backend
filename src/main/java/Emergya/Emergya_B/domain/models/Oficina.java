@@ -4,35 +4,45 @@ import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Oficina {
 
+public class Oficina {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "id")
     private Integer id;
 
-    private String NombreOficina;
+    @Column(name = "nombreoficina")
+    private String Nombreoficina;
 
-    private String Numero_asientos;
+    @Column(name = "puesto")
+    private String Puesto;
 
-    private String Plano_distribuccion;
+    @Column(name = "planodistribucion")
+    private String Planodistribucion;
 
-    private String Dias_antelacion;
+    @Column(name = "diasantelacion")
+    private String Diasantelacion;
+
 
     public Oficina() {
-
     }
 
-    public Oficina(Integer id, String NombreOficina, String Numero_asientos, String Plano_distribuccion, String Dias_antelacion){
+    public Oficina(Integer id, String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
         this.id = id;
-        this.NombreOficina = NombreOficina;
-        this.Numero_asientos = Numero_asientos;
-        this.Plano_distribuccion = Plano_distribuccion;
-        this.Dias_antelacion = Dias_antelacion;
+        this.Nombreoficina = nombreoficina;
+        this.Puesto = puesto;
+        this.Planodistribucion = planodistribucion;
+        this.Diasantelacion = diasantelacion;
     }
 
-
+    public Oficina(String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
+        this.Nombreoficina = nombreoficina;
+        this.Puesto = puesto;
+        this.Planodistribucion = planodistribucion;
+        this.Diasantelacion = diasantelacion;
+    }
 
     public Integer getId() {
         return id;
@@ -42,60 +52,35 @@ public class Oficina {
         this.id = id;
     }
 
-    public String getNombreOficina() {
-        return NombreOficina;
+    public String getNombreoficina() {
+        return Nombreoficina;
     }
 
-    public void setNombreOficina(String nombreoficina) {
-        NombreOficina = nombreoficina;
+    public void setNombreoficina(String nombreoficina) {
+        Nombreoficina = nombreoficina;
     }
 
-    public String getNumero_asientos() {
-        return Numero_asientos;
+    public String getPuesto() {
+        return Puesto;
     }
 
-    public void setNumero_asientos(String numero_asientos) {
-        Numero_asientos = numero_asientos;
+    public void setPuesto(String puesto) {
+        Puesto = puesto;
     }
 
-    public String getPlano_distribuccion() {
-        return Plano_distribuccion;
+    public String getPlanodistribucion() {
+        return Planodistribucion;
     }
 
-    public void setPlano_distribuccion(String plano_distribuccion) {
-        Plano_distribuccion = plano_distribuccion;
+    public void setPlanodistribucion(String planodistribucion) {
+        Planodistribucion = planodistribucion;
     }
 
-    public String getDias_antelacion() {
-        return Dias_antelacion;
+    public String getDiasantelacion() {
+        return Diasantelacion;
     }
 
-    public void setDias_antelacion(String dias_antelacion) {
-        Dias_antelacion = dias_antelacion;
-    }
-
-    public String getPlano_distribucion(Object planoDistribucion) {
-        return null;
-    }
-
-    public String getNumeroAsientos() {
-        return null;
-    }
-
-    public Object getPlanoDistribucion() {
-        return null;
-    }
-
-    public String getDiasAntelacion() {
-        return null;
-    }
-
-    public void setNumeroAsientos(String numeroAsientos) {
-    }
-
-    public void setPlanoDistribucion(Object planoDistribucion) {
-    }
-
-    public void setDiasAntelacion(String diasAntelacion) {
+    public void setDiasantelacion(String diasantelacion) {
+        Diasantelacion = diasantelacion;
     }
 }

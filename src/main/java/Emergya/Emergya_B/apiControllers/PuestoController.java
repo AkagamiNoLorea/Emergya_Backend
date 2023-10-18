@@ -4,15 +4,14 @@ import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.domain.services.PuestoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/puestos")
+@RequestMapping("/api/v1/puesto")
 public class PuestoController {
+
     @Autowired
     private PuestoService puestoService;
 
@@ -22,6 +21,11 @@ public class PuestoController {
         return ResponseEntity.ok(puestosDisponibles);
     }
 
-
+    @PostMapping
+    public ResponseEntity<Puesto> crearNuevoPuesto(@RequestBody Puesto puesto) {
+        Puesto nuevoPuesto = puestoService.guardarPuesto(puesto);
+        return ResponseEntity.ok(nuevoPuesto);
+    }
 }
+
 
