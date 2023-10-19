@@ -43,4 +43,10 @@ public class OficinaService {
         }
 
     }
+    public void deleteOficina(Integer id) {
+        boolean existe = oficinaRepository.existsById(id);
+        if (existe) {
+            oficinaRepository.deleteById(id);
+        }
+    }
 }

@@ -35,5 +35,9 @@ public class OficinaController {
     public void updateOficina(@PathVariable Integer id, @RequestBody Oficina oficina){
         oficinaService.update(id, oficina);
     }
+    @DeleteMapping("/{id}")
+    public void deleteOficina(@PathVariable Integer id) {
+        oficinaService.deleteOficina(id);
+    }
 
 }
