@@ -17,19 +17,19 @@ public class Oficina {
     private String Nombreoficina;
 
     @Column(name = "puesto") // Nombre de la columna en la base de datos
-    private String Puesto;
+    private Integer Puesto;
 
     @Column(name = "planodistribucion") // Nombre de la columna en la base de datos
     private String Planodistribucion;
 
     @Column(name = "diasantelacion") // Nombre de la columna en la base de datos
-    private String Diasantelacion;
+    private Integer Diasantelacion;
 
 
     public Oficina() {
     }
 
-    public Oficina(Integer id, String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
+    public Oficina(Integer id, String nombreoficina, Integer puesto, String planodistribucion, Integer diasantelacion) {
         this.id = id;
         this.Nombreoficina = nombreoficina;
         this.Puesto = puesto;
@@ -37,7 +37,7 @@ public class Oficina {
         this.Diasantelacion = diasantelacion;
     }
 
-    public Oficina(String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
+    public Oficina(String nombreoficina, Integer puesto, String planodistribucion, Integer diasantelacion) {
         this.Nombreoficina = nombreoficina;
         this.Puesto = puesto;
         this.Planodistribucion = planodistribucion;
@@ -60,11 +60,11 @@ public class Oficina {
         Nombreoficina = nombreoficina;
     }
 
-    public String getPuesto() {
+    public Integer getPuesto() {
         return Puesto;
     }
 
-    public void setPuesto(String puesto) {
+    public void setPuesto(Integer puesto) {
         Puesto = puesto;
     }
 
@@ -76,11 +76,11 @@ public class Oficina {
         Planodistribucion = planodistribucion;
     }
 
-    public String getDiasantelacion() {
+    public Integer getDiasantelacion() {
         return Diasantelacion;
     }
 
-    public void setDiasantelacion(String diasantelacion) {
+    public void setDiasantelacion(Integer diasantelacion) {
         Diasantelacion = diasantelacion;
     }
 }
