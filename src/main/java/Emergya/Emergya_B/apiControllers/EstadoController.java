@@ -1,14 +1,8 @@
-/*package Emergya.Emergya_B.apiControllers;
+package Emergya.Emergya_B.apiControllers;
 
-import Emergya.Emergya_B.domain.models.Estado;
-import Emergya.Emergya_B.domain.services.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
-@RequestMapping(path = "/estado")
 public class EstadoController {
 
     private final EstadoService estadoService;
@@ -17,12 +11,11 @@ public class EstadoController {
 
     public EstadoController(EstadoService estadoService){
         this.estadoService = estadoService;
-
     }
 
     @GetMapping
     public List<Estado> getEstadoController(){
-        return estadoService.getestadoService();
+        return estadoService.getEstado();
     }
 
     @PostMapping
@@ -30,17 +23,8 @@ public class EstadoController {
         estadoService.newEstado(estado);
     }
 
-    @PutMapping("/{id}")
-    public void updateBook(@PathVariable Integer id, @RequestBody Estado estado){
-        estadoService.update(id, estado);
-
+    @PutMapping("/{di")
+    public void updateEstado(@PathVariable Integer id){
+        estadoService.deleteEstado(id);
     }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
-        estadoService.deleteestadoService(id);
-
-    }
-
 }
-*/
