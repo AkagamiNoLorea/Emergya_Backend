@@ -11,7 +11,7 @@ public class Puesto {
     @Column(name = "id") // Nombre de la columna "id"
     private Integer id;
 
-    @Column(name = "id_oficina") // Nombre de la columna "id_oficina"
+    @Column(name = "idOficina") // Nombre de la columna "id_oficina"
     private Integer idOficina; // Cambia el nombre de la propiedad
 
     @Column(name = "disponible") // Nombre de la columna "disponible"
@@ -20,15 +20,15 @@ public class Puesto {
     @Column(name = "numero") // Nombre de la columna "numero"
     private Integer numero;
 
-    @Column(name = "id_estado") // Nombre de la columna "id_estado"
+    @Column(name = "idEstado") // Nombre de la columna "id_estado"
     private Integer idEstado; // Nuevo campo para la relación con Estado
 
     @ManyToOne
-    @JoinColumn(name = "id_oficina", insertable = false, updatable = false) // Nombre de la columna en la tabla "puesto"
+    @JoinColumn(name = "idOficina", insertable = false, updatable = false) // Nombre de la columna en la tabla "puesto"
     private Oficina oficina;
 
     @ManyToOne
-    @JoinColumn(name = "id_estado", insertable = false, updatable = false) // Nombre de la columna en la tabla "puesto"
+    @JoinColumn(name = "idEstado", insertable = false, updatable = false) // Nombre de la columna en la tabla "puesto"
     private Estado estado;
 
     public Puesto() {
@@ -61,9 +61,11 @@ public class Puesto {
         return idEstado;
     }
 
-    public void setIdOficina(Integer idOficina) {
-        this.idOficina = idOficina;
+    public void setOficina() {
+        this.oficina = oficina;
+        this.idOficina = oficina.getId();
     }
+
 
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
@@ -75,5 +77,11 @@ public class Puesto {
 
     public void setIdEstado(Integer idEstado) {
         this.idEstado = idEstado;
+    }
+
+    public void setOficina(Oficina oficina) {
+    }
+
+    public void setIdOficina(Integer idOficina) {
     }
 }

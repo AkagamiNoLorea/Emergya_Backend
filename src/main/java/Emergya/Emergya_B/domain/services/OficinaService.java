@@ -12,6 +12,7 @@ import java.util.Optional;
 public class OficinaService {
 
     private static OficinaRepository oficinaRepository;
+
     @Autowired
 
     public OficinaService(OficinaRepository oficinaRepository) {
@@ -20,11 +21,11 @@ public class OficinaService {
 
 
 
-    public static List<Oficina> getOficina(){
+    public static final List<Oficina> getOficina(){
 
         return oficinaRepository.findAll();
     }
-    public static void newOficina(Oficina oficina) {
+    public static final void newOficina(Oficina oficina) {
         oficinaRepository.save(oficina);
     }
 

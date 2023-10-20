@@ -1,6 +1,4 @@
 package Emergya.Emergya_B.domain.models;
-
-
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -18,7 +16,7 @@ public class Usuariopuesto {
 
     @Column(name = "id_puesto")
     private Integer idPuesto;
-
+    @Column(name = "franja_horario")
     private String FranjaHorario;
 
     private Date Fecha;

@@ -44,6 +44,9 @@ public class Oficina {
         this.Diasantelacion = diasantelacion;
     }
 
+    public Oficina(String nombreoficina, String s, String planodistribucion, String s1) {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -83,4 +86,5 @@ public class Oficina {
     public void setDiasantelacion(Integer diasantelacion) {
         Diasantelacion = diasantelacion;
     }
+
 }
