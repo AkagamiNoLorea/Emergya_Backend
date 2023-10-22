@@ -1,6 +1,5 @@
-/*
-package Emergya.Emergya_B.domain.services;
 
+package Emergya.Emergya_B.domain.services;
 import Emergya.Emergya_B.domain.models.Estado;
 import Emergya.Emergya_B.infrarepositorie.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,8 @@ public class EstadoService {
 
 
 
-    public List<Estado> getBook() {
-        return estadoRepository.findAll();
+    public List<Estado> getEstado() {
+        return estadoRepository.findAll(); // SELECT * FROM proyectos
     }
 
     public void newEstado (Estado estado) {
@@ -34,17 +33,17 @@ public class EstadoService {
 
         Optional<Estado> estadoByID = estadoRepository.findById(id); // buscar proyecto por id
 
-        if (bookByID.isPresent()) {
-            Estado bookExistente = bookByID.get();
+        if (estadoByID.isPresent()) {
+            Estado estadoExistente = estadoByID.get();
 
-            bookExistente.setOc_mañana(estado.getOc_mañana());
-            bookExistente.setOc_tarde(estado.getOc_tarde());
+            estadoExistente.setOc_mañana(estado.getOc_mañana());
+            estadoExistente.setOc_tarde(estado.getOc_tarde());
 
-            estadoRepository.save(bookExistente);
+            estadoRepository.save(estadoExistente);
         }
     }
 
-    public void deletebook(Integer id) {
+    public void deleteEstado(Integer id) {
         boolean existe = estadoRepository.existsById(id);
         if (existe) {
             estadoRepository.deleteById(id);
@@ -52,4 +51,4 @@ public class EstadoService {
     }
 
 }
-*/
+

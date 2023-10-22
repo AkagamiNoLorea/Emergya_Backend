@@ -10,32 +10,44 @@ public class Oficina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "id") // Nombre de la columna en la base de datos
     private Integer id;
+
+    @Column(name = "nombreoficina") // Nombre de la columna en la base de datos
     private String Nombreoficina;
-    private String Puesto;
+
+    @Column(name = "puesto") // Nombre de la columna en la base de datos
+    private Integer Puesto;
+
+    @Column(name = "planodistribucion") // Nombre de la columna en la base de datos
     private String Planodistribucion;
-    private String Diasantelacion;
+
+    @Column(name = "diasantelacion") // Nombre de la columna en la base de datos
+    private Integer Diasantelacion;
+
 
     public Oficina() {
     }
 
-    public Oficina(Integer id, String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
+    public Oficina(Integer id, String nombreoficina, Integer puesto, String planodistribucion, Integer diasantelacion) {
         this.id = id;
         this.Nombreoficina = nombreoficina;
-       this.Puesto = puesto;
-        this.Planodistribucion = planodistribucion;
-        this.Diasantelacion = diasantelacion;
-    }
-
-    public Oficina(String nombreoficina, String puesto, String planodistribucion, String diasantelacion) {
-       this.Nombreoficina = nombreoficina;
         this.Puesto = puesto;
         this.Planodistribucion = planodistribucion;
         this.Diasantelacion = diasantelacion;
     }
 
-    public Integer getId() {
+    public Oficina(String nombreoficina, Integer puesto, String planodistribucion, Integer diasantelacion) {
+        this.Nombreoficina = nombreoficina;
+        this.Puesto = puesto;
+        this.Planodistribucion = planodistribucion;
+        this.Diasantelacion = diasantelacion;
+    }
 
+    public Oficina(String nombreoficina, String s, String planodistribucion, String s1) {
+    }
+
+    public Integer getId() {
         return id;
     }
 
@@ -51,11 +63,11 @@ public class Oficina {
         Nombreoficina = nombreoficina;
     }
 
-    public String getPuesto() {
+    public Integer getPuesto() {
         return Puesto;
     }
 
-    public void setPuesto(String puesto) {
+    public void setPuesto(Integer puesto) {
         Puesto = puesto;
     }
 
@@ -67,11 +79,12 @@ public class Oficina {
         Planodistribucion = planodistribucion;
     }
 
-    public String getDiasantelacion() {
+    public Integer getDiasantelacion() {
         return Diasantelacion;
     }
 
-    public void setDiasantelacion(String diasantelacion) {
+    public void setDiasantelacion(Integer diasantelacion) {
         Diasantelacion = diasantelacion;
     }
+
 }

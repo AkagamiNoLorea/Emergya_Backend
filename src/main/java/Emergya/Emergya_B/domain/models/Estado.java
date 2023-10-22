@@ -1,41 +1,54 @@
 package Emergya.Emergya_B.domain.models;
+import jakarta.persistence.*;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+@Entity
+@Table
 public class Estado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private Integer id;
-    private String Oc_mañana;
-    private String Oc_tarde;
+    @Column(name = "oc_mañana")
+    private Boolean Oc_mañana;
+    @Column(name = "oc_tarde")
+    private Boolean Oc_tarde;
 
-    public Estado (){
+    // Constructor vacío
+    public Estado() {
     }
 
-    public Estado (String Oc_mañana, String Oc_tarde){
+    // Constructor con todos los atributos
+    public Estado(Integer id, Boolean Oc_mañana, Boolean Oc_tarde) {
+        this.id = id;
         this.Oc_mañana = Oc_mañana;
         this.Oc_tarde = Oc_tarde;
     }
 
-    public Integer getId(){
+    public Estado( Boolean Oc_mañana, Boolean Oc_tarde) {
+        this.Oc_mañana = Oc_mañana;
+        this.Oc_tarde = Oc_tarde;
+    }
+
+    public Integer getId() {
         return id;
     }
-    public String getOc_mañana(){
+
+    public Boolean getOc_mañana() {
         return Oc_mañana;
     }
 
-    public String getOc_tarde(){
+    public Boolean getOc_tarde() {
         return Oc_tarde;
     }
 
-    public void setOc_mañana(String oc_mañana) {
+    // Métodos setter para establecer los valores de las propiedades
+
+    public void setOc_mañana(Boolean Oc_mañana) {
         this.Oc_mañana = Oc_mañana;
     }
 
-    public void setOc_tarde(String oc_tarde) {
-        this.Oc_tarde = oc_tarde;
+    public void setOc_tarde(Boolean Oc_tarde) {
+        this.Oc_tarde = Oc_tarde;
     }
 }
+

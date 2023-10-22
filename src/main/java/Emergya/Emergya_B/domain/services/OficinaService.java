@@ -1,5 +1,4 @@
 package Emergya.Emergya_B.domain.services;
-
 import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.infrarepositorie.OficinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import java.util.Optional;
 public class OficinaService {
 
     private static OficinaRepository oficinaRepository;
+
     @Autowired
 
     public OficinaService(OficinaRepository oficinaRepository) {
@@ -20,11 +20,11 @@ public class OficinaService {
 
 
 
-    public static List<Oficina> getOficina(){
+    public static final List<Oficina> getOficina(){
 
         return oficinaRepository.findAll();
     }
-    public static void newOficina(Oficina oficina) {
+    public static final void newOficina(Oficina oficina) {
         oficinaRepository.save(oficina);
     }
 
@@ -42,5 +42,11 @@ public class OficinaService {
             oficinaRepository.save(oficinaExistente);
         }
 
+    }
+    public void deleteOficina(Integer id) {
+        boolean existe = oficinaRepository.existsById(id);
+        if (existe) {
+            oficinaRepository.deleteById(id);
+        }
     }
 }

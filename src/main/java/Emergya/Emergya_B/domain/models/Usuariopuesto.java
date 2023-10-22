@@ -1,72 +1,79 @@
 package Emergya.Emergya_B.domain.models;
 
-
 import jakarta.persistence.*;
-import org.jetbrains.annotations.Contract;
+import java.util.Date;
+
 
 @Entity
-@Table
-
+@Table(name = "reserva") //Nombre de la tabla en la base de datos
 public class Usuariopuesto {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String Id_Usuario;
+    @Column(name = "id_usuario") // Nombre de la columna "id_usuario"
+    private Integer idUsuario; // Nuevo campo para la relación con Usuario
 
-    private String Id_Asiento;
+    @Column(name = "id_puesto")
+    private Integer idPuesto;
 
     private String FranjaHorario;
 
-    public Usuariopuesto(Integer id, String id_Usuario, String id_Asiento, String FranjaHorario) {
+    private Date Fecha;
+
+    @ManyToOne
+    @JoinColumn(name = "id_Usuario", insertable = false, updatable = false)
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_Puesto", insertable = false, updatable = false) // Nombre de la columna en la tabla "puesto"
+    private Puesto puesto;
+
+    public Usuariopuesto(){
+    }
+
+
+
+    public Usuariopuesto(Integer id, Integer idUsuario, Integer idPuesto, String FranjaHorario, Date Fecha) {
         this.id = id;
-        this.Id_Asiento = id_Asiento;
-        this.Id_Usuario = id_Usuario;
+        this.idUsuario = idUsuario;
+        this.idPuesto = idPuesto;
         this.FranjaHorario = FranjaHorario;
+        this.Fecha = Fecha;
     }
 
-    public Usuariopuesto(String id_Asiento, String id_Usuario, String FranjaHorario) {
-        this.Id_Asiento = id_Asiento;
-        this.Id_Usuario = id_Usuario;
+    public Usuariopuesto( Integer idUsuario, Integer idPuesto, String FranjaHorario, Date Fecha) {
+        this.idUsuario = idUsuario;
+        this.idPuesto = idPuesto;
         this.FranjaHorario = FranjaHorario;
+        this.Fecha = Fecha;
     }
 
-    public Integer getId () {
 
-        return id;
+
+    public Integer getId () { return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-public String getId_Usuario() {
-        return Id_Usuario;
-}
-
-    public void setId_Usuario(String id_Usuario) {
-        Id_Usuario = id_Usuario;
+    public Integer getIdUsuario() { return idUsuario;
     }
 
-    public String getFranjaHorario() {
-        return FranjaHorario;
+    public Integer getIdPuesto() { return idPuesto;
     }
 
-    public void setFranjaHorario(String franjaHorario) {
-        FranjaHorario = franjaHorario;
+    public String getFranjaHorario() { return FranjaHorario;
     }
 
-    public String getId_Asiento() {
-        return Id_Asiento;
+    public Date getFecha() { return Fecha;
     }
 
-    public void setId_Asiento(String id_Asiento) {
-        Id_Asiento = id_Asiento;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    @Contract(pure = true)
-    public Usuariopuesto() {
+    public void setIdPuesto(Integer idPuesto) {this.idPuesto = idPuesto;}
 
-    }
+    public void setFranjaHorario(String franjaHorario) {FranjaHorario = franjaHorario;}
 
+    public void setFecha(Date fecha) {Fecha = fecha;}
 }
