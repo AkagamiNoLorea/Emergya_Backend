@@ -1,5 +1,6 @@
 package Emergya.Emergya_B.domain.services;
 
+import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.domain.models.Usuario;
 import Emergya.Emergya_B.infrarepositorie.PuestoRepository;
@@ -35,8 +36,7 @@ public class UsuarioService {
             existente.setNombre(usuario.getNombre());
             existente.setEmail(usuario.getEmail());
             existente.setEmpresa(usuario.getEmpresa());
-            existente.setIsAdmin(usuario.getIsAdmin());
-            existente.setRoles(usuario.getRoles()); // roles para luego
+            existente.setIsAdmin(usuario.getIsAdmin());// roles para luego
             usuarioRepository.save(existente);
         }
     }
@@ -46,5 +46,11 @@ public class UsuarioService {
         if (existe) {
             usuarioRepository.deleteById(id);
         }
+    }
+
+    public Usuario getUsuarioId(Integer id){
+
+        Optional<Usuario> usuarioById = usuarioRepository.findById(id);
+        return usuarioById.get();
     }
 }

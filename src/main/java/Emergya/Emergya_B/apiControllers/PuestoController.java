@@ -1,5 +1,6 @@
 package Emergya.Emergya_B.apiControllers;
 
+import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.domain.models.Puesto;
 import Emergya.Emergya_B.domain.services.PuestoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class PuestoController {
     @GetMapping
     public List<Puesto> getPuesto() {
         return puestoService.getPuestos();
+    }
+    @GetMapping("/{idOficina}")
+    public List<Puesto> findByIdOficina(@PathVariable Integer idOficina) {
+        return puestoService.findByIdOficina(idOficina);
     }
 
     @PostMapping

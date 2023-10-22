@@ -1,5 +1,6 @@
 package Emergya.Emergya_B.apiControllers;
 
+import Emergya.Emergya_B.domain.models.Oficina;
 import Emergya.Emergya_B.domain.models.Usuario;
 import Emergya.Emergya_B.domain.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class UsuarioController {
     @GetMapping
     public List<Usuario> getUsuarios() {
         return usuarioService.getUsuarios();
+    }
+    @GetMapping("/{id}")
+    public Usuario getUsuarioId(@PathVariable Integer id) {
+        return usuarioService.getUsuarioId(id);
     }
 
     @PostMapping

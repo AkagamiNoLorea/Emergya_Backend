@@ -53,5 +53,13 @@ public class PuestoService {
         return puestoRepository.getNumeroPuestosPorOficina(idOficina);
 
     }
+    public Puesto getPuestoById(Integer id){
 
+        Optional<Puesto> puestoById = puestoRepository.findById(id);
+        return puestoById.get();
+    }
+
+    public List<Puesto> findByIdOficina(Integer idOficina){
+        return puestoRepository.findByIdOficina(idOficina);
+    }
 }

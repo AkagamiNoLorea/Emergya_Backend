@@ -31,15 +31,14 @@ public class DataInitializer implements CommandLineRunner {
             oficinaRepository.save(oficina);
 
             for (int j = 1; j <= 20; j++) {
-                Puesto puesto = new Puesto(1, true, 0+j, null);
-                puesto.setOficina(oficina);
+                Puesto puesto = new Puesto(oficina.getId(), true, 0+j, null);
 
                 puestoRepository.save(puesto);
             }
         }
 
         for (int k = 1; k <= 18; k++) {
-            Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario( "Usuario", "hola@mail.com", 1, false);
             usuario.setNombre("Usuario " + k);
 
             usuarioRepository.save(usuario);

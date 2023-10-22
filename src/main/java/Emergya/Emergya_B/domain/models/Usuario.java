@@ -19,21 +19,15 @@ public class Usuario {
     private String email;
 
     @Column(name = "empresa")
-    private String empresa;
+    private Integer empresa;
 
     @Column(name = "isadmin")
     private Boolean isAdmin;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_roles",
-            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
-    private Set<Rol> roles;
-
     public Usuario() {
     }
 
-    public Usuario(Long id, String nombre, String email, String empresa, Boolean isAdmin) {
+    public Usuario(Long id, String nombre, String email, Integer empresa, Boolean isAdmin) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -41,7 +35,7 @@ public class Usuario {
         this.isAdmin = isAdmin;
     }
 
-    public Usuario(String nombre, String email, String empresa, Boolean isAdmin) {
+    public Usuario(String nombre, String email, Integer empresa, Boolean isAdmin) {
         this.nombre = nombre;
         this.email = email;
         this.empresa = empresa;
@@ -60,16 +54,12 @@ public class Usuario {
         return email;
     }
 
-    public String getEmpresa() {
+    public Integer getEmpresa() {
         return empresa;
     }
 
     public Boolean getIsAdmin() {
         return isAdmin;
-    }
-
-    public Set<Rol> getRoles() {
-        return roles;
     }
 
     public void setId(Long id) {
@@ -84,7 +74,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public void setEmpresa(String empresa) {
+    public void setEmpresa(Integer empresa) {
         this.empresa = empresa;
     }
 
@@ -92,8 +82,5 @@ public class Usuario {
         this.isAdmin = isAdmin;
     }
 
-    public void setRoles(Set<Rol> roles) {
-        this.roles = roles;
-    }
 
 }
